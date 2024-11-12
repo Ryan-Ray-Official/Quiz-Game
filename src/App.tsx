@@ -8,7 +8,7 @@ import NotFound from './components/NotFound';
 function App() {
   return (
     <QuizProvider>
-      <Router>
+      <Router basename="/Quiz-Game">
         <div className="min-h-screen bg-background font-sans antialiased">
           <div className="relative flex min-h-screen flex-col">
             <div className="flex-1">
