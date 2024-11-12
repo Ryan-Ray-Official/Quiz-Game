@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 224 71% 4%;
+        --foreground: 213 31% 91%;
+
+        --muted: 223 47% 11%;
+        --muted-foreground: 215.4 16.3% 56.9%;
+
+        --accent: 216 34% 17%;
+        --accent-foreground: 210 40% 98%;
+
+        --popover: 224 71% 4%;
+        --popover-foreground: 215 20.2% 65.1%;
+
+        --border: 216 34% 17%;
+        --input: 216 34% 17%;
+
+        --card: 224 71% 4%;
+        --card-foreground: 213 31% 91%;
+
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 1.2%;
+
+        --secondary: 222.2 47.4% 11.2%;
+        --secondary-foreground: 210 40% 98%;
+
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 216 34% 17%;
+
+        --radius: 0.5rem;
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-2;
+        -webkit-appearance: none;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-gray-900/50 rounded-full;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gray-600 rounded-full transition-colors hover:bg-gray-500;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    ::-webkit-scrollbar-corner {
+        @apply bg-transparent;
+    }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #4B5563 #1F2937;
+    }
+
+    @supports not (scrollbar-color: auto) {
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+        }
+    }
+
+    @supports (-ms-overflow-style: none) {
+        * {
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+        @apply bg-background text-foreground overflow-x-hidden;
+        font-feature-settings: "rlig" 1, "calt" 1;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    button::-moz-focus-inner {
+        border: 0;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+    }
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+.dark body {
+    @apply bg-gray-900;
+}
+
+.dark .bg-card {
+    @apply bg-gray-800;
+}
+
+.dark .border-border {
+    @apply border-gray-700;
+}
+
+.dark .text-foreground {
+    @apply text-gray-100;
+}
+
+.dark .bg-background {
+    @apply bg-gray-900;
+}
+
+@supports not (animation-name: none) {
+    .animate-spin {
+        animation: none !important;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .min-h-screen {
+        min-height: -webkit-fill-available;
+    }
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
+
+@media (hover: none) {
+    .hover\:bg-primary:hover {
+        @apply bg-primary;
+    }
+}
+
+input,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    img[src$=".svg"] {
+        width: 100%;
+    }
+}
+
+@supports (-ms-ime-align:auto) {
+    .grid {
+        display: -ms-grid;
+    }
+}
